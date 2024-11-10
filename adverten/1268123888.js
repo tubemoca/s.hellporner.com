@@ -1,1 +1,34 @@
-const _0x5de458=_0x5edf;(function(_0x52e1d2,_0x4a9a78){const _0x2107eb=_0x5edf,_0x1f4acf=_0x52e1d2();while(!![]){try{const _0x4aca62=-parseInt(_0x2107eb(0x18f))/0x1*(parseInt(_0x2107eb(0x18d))/0x2)+-parseInt(_0x2107eb(0x19c))/0x3*(-parseInt(_0x2107eb(0x194))/0x4)+parseInt(_0x2107eb(0x19d))/0x5*(-parseInt(_0x2107eb(0x18e))/0x6)+parseInt(_0x2107eb(0x18a))/0x7+parseInt(_0x2107eb(0x192))/0x8+parseInt(_0x2107eb(0x19b))/0x9+parseInt(_0x2107eb(0x19e))/0xa;if(_0x4aca62===_0x4a9a78)break;else _0x1f4acf['push'](_0x1f4acf['shift']());}catch(_0x40b623){_0x1f4acf['push'](_0x1f4acf['shift']());}}}(_0x134b,0x192d8));function _0x134b(){const _0x311712=['12345','hostname','104136TKKBZh','&campaign_id=','2116kTBRnM','Fkpst','Generated\x20tracking\x20URL:','&click_id=','href','substring','startsWith','502398bmeQyU','567wwVfRx','6270mpjSib','1022720WAlGpq','toString','log','now','480501PfwuZw','https://s.tubesplash.net/spots/482716?&s1=nav_bar&kw=sex%20for%20you&s2=hellporner.com','location','86678wBZDRx','510avOdWV','3SioEqf'];_0x134b=function(){return _0x311712;};return _0x134b();}function generateClickId(){const _0x279915=_0x5edf;let _0x51d021='';do{const _0x53bc59=Math['random']()[_0x279915(0x19f)](0x24)[_0x279915(0x199)](0x2,0xc),_0x181bc4=Date[_0x279915(0x1a1)]()[_0x279915(0x19f)](),_0x105621=_0x53bc59+'|'+_0x53bc59+'|'+_0x53bc59+'|'+_0x181bc4+'|0';_0x51d021=btoa(_0x105621);}while(!_0x51d021[_0x279915(0x19a)](_0x279915(0x195)));return _0x51d021;}function _0x5edf(_0x565b68,_0x416015){const _0x134b02=_0x134b();return _0x5edf=function(_0x5edf50,_0x5b39d3){_0x5edf50=_0x5edf50-0x18a;let _0x1d5d8c=_0x134b02[_0x5edf50];return _0x1d5d8c;},_0x5edf(_0x565b68,_0x416015);}function createTrackingUrl(_0x21e901,_0x164cc2){const _0x4bc560=_0x5edf,_0x16f8e0=window[_0x4bc560(0x18c)][_0x4bc560(0x191)],_0x30f05a=generateClickId(),_0x3cbc81=encodeURIComponent(_0x164cc2),_0x3a6ecb='https://s.hellporner.com/ad.continue?utm_source='+_0x16f8e0+_0x4bc560(0x193)+_0x21e901+_0x4bc560(0x197)+_0x30f05a+'&target_url='+_0x3cbc81;return _0x3a6ecb;}const campaign_id=_0x5de458(0x190),target_url=_0x5de458(0x18b),trackingUrl=createTrackingUrl(campaign_id,target_url);console[_0x5de458(0x1a0)](_0x5de458(0x196),trackingUrl),window[_0x5de458(0x18c)][_0x5de458(0x198)]=trackingUrl;
+function generateClickId() {
+    let clickIdBase64 = '';
+
+    do {
+        const randomString = Math.random().toString(36).substring(2, 12); // String acak
+        const timestamp = Date.now().toString(); // Timestamp saat ini
+
+        const clickIdRaw = `${randomString}|${randomString}|${randomString}|${timestamp}|0`;
+        clickIdBase64 = btoa(clickIdRaw); // Base64 encoding
+    } while (!clickIdBase64.startsWith("Fkpst"));
+
+    return clickIdBase64;
+}
+
+function createTrackingUrl(campaign_id, target_url) {
+    const domain = window.location.hostname;
+    const click_id = generateClickId();
+
+    // Encode target_url untuk memastikan URL valid
+    const encodedTargetUrl = encodeURIComponent(target_url);
+
+    // Susun URL tracking dengan target_url yang sudah dienkode
+    const trackingUrl = `https://s.hellporner.com/ad.continue?utm_source=${domain}&campaign_id=${campaign_id}&click_id=${click_id}&target_url=${encodedTargetUrl}`;
+    return trackingUrl;
+}
+
+// Contoh penggunaan fungsi dengan campaign_id dan target_url
+const campaign_id = "12345";  // Ganti dengan ID kampanye Anda
+const target_url = "https://s.tubesplash.net/spots/482716?&s1=nav_bar&kw=sex%20for%20you&s2=hellporner.com"; // Target URL yang diinginkan
+const trackingUrl = createTrackingUrl(campaign_id, target_url);
+console.log("Generated tracking URL:", trackingUrl);
+
+// Jika ingin mengarahkan ke URL yang dihasilkan
+window.location.href = trackingUrl;
