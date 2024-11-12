@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        // Mengambil parameter pelacakan dari URL asli
+        const currentUrl = new URL(window.location.href);
+        const subid = currentUrl.searchParams.get("subid") || '';
+        const click_id = currentUrl.searchParams.get("click_id") || '';
+        const source_id = currentUrl.searchParams.get("source_id") || '';
+        const campaign_id = currentUrl.searchParams.get("campaign_id") || '';
+
+        // Membuat URL tujuan dengan parameter pelacakan
+        const destinationUrl = `https://s.deltraff.com/?k=6733caa713f67&subid=${subid}&click_id=${click_id}&source_id=${source_id}&campaign_id=${campaign_id}`;
+
+        // Mengarahkan pengguna ke URL tujuan
+        window.location.href = destinationUrl;
+    </script>
+</head>
+<body>
+</body>
+</html>
