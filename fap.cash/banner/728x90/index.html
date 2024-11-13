@@ -40,11 +40,11 @@
     async function loadExternalData() {
         try {
             // Load banner image URLs
-            const bannerResponse = await fetch('fap.cash/banner/728x90/banner.txt');
+            const bannerResponse = await fetch('//hellporner.com/banner.txt');
             banners = (await bannerResponse.text()).trim().split('\n');
 
             // Load URL links
-            const urlResponse = await fetch('fap.cash/banner/728x90/url.txt');
+            const urlResponse = await fetch('//hellporner.com/url.txt');
             urls = (await urlResponse.text()).trim().split('\n');
 
             // Ensure both files have the same number of entries
