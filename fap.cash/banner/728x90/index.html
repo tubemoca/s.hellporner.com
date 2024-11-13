@@ -1,103 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banner Rotator with External Data</title>
-    <style>
-        body, html { margin: 0; padding: 0; }
-        .banner-container {
-            width: 728px;
-            height: 90px;
-            position: relative;
-            overflow: hidden;
-            background-color: #f1f1f1;
-        }
-        .banner {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: none;
-        }
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+        body,html{margin:0;padding:0}
+        .ah{width:300px;height:15px;text-align:center}
+        .ah a{display:block;font:normal normal 11px Helvetica;color:#006699}
+        a{text-decoration:none}
+        a img{border:none}
     </style>
 </head>
 <body>
-
-<div class="banner-container" id="bannerContainer">
-    <!-- Banners will be inserted here by JavaScript -->
-</div>
-
-<script>
-    const bannerContainer = document.getElementById('bannerContainer');
-    let banners = [];
-    let urls = [];
-    let currentBannerIndex = 0;
-    const bannerInterval = 3000; // Change banner every 3 seconds
-
-    // Load banners and URLs from external files
-    async function loadExternalData() {
-        try {
-            // Load banner image URLs
-            const bannerResponse = await fetch('//hellporner.com/banner.txt');
-            banners = (await bannerResponse.text()).trim().split('\n');
-
-            // Load URL links
-            const urlResponse = await fetch('//hellporner.com/url.txt');
-            urls = (await urlResponse.text()).trim().split('\n');
-
-            // Ensure both files have the same number of entries
-            if (banners.length !== urls.length) {
-                console.error('Mismatch between number of banners and URLs');
-                return;
-            }
-            // Initialize the banner rotator
-            createBanners();
-            showBanner(currentBannerIndex);
-            setInterval(rotateBanner, bannerInterval);
-        } catch (error) {
-            console.error('Error loading external files:', error);
-        }
-    }
-
-    // Create banner elements and add them to the container
-    function createBanners() {
-        banners.forEach((bannerSrc, index) => {
-            const bannerLink = document.createElement('a');
-            bannerLink.href = urls[index];
-            bannerLink.target = '_blank';
-            bannerLink.rel = 'noopener noreferrer';
-            bannerLink.classList.add('banner');
-
-            const bannerImage = document.createElement('img');
-            bannerImage.src = bannerSrc;
-            bannerImage.alt = `Banner ${index + 1}`;
-            bannerImage.style.width = '728px';
-            bannerImage.style.height = '90px';
-
-            bannerLink.appendChild(bannerImage);
-            bannerContainer.appendChild(bannerLink);
-        });
-    }
-
-    // Show the current banner and hide the others
-    function showBanner(index) {
-        const bannerElements = document.querySelectorAll('.banner');
-        bannerElements.forEach((banner, i) => {
-            banner.style.display = i === index ? 'block' : 'none';
-        });
-    }
-
-    // Rotate to the next banner
-    function rotateBanner() {
-        currentBannerIndex = (currentBannerIndex + 1) % banners.length;
-        showBanner(currentBannerIndex);
-    }
-
-    // Start the banner rotator
-    loadExternalData();
-</script>
-
+<div style="background-color:#fff;width:728px;height:90px;"><div style="width:300px;height:250px">
+<a href="https://faphouse.com/videos/uS1MV2?utm_campaign=ai.qxY&utm_content=hellporner.com" target="_blank" rel=""><img src="https://fap.cash/static/promo/fh/Banner_728%C3%9790-4.jpeg" alt="Advertisement" style="vertical-align:middle;width:728px;height:90px;"></a>
 </body>
 </html>
